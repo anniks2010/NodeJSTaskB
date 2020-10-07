@@ -11,19 +11,25 @@ app.use(bodyParser.urlencoded({extended:true}));
 
 app.get("/", function(req, res){
     
-    res.render('index.ejs', {corona: ''});
- });
-
-app.post('/',(req, res)=>{
-    /////let country=req.body.country;
     let url='https://api.thevirustracker.com/free-api?countryTimeline=EE';
-  
     axios.get(url).
     
     then(function(response){
-        console.log(response.corona);
-        let coronaObjects=response.data[0];
-        res.render('index.ejs',{corona:coronaObjects});
+        ////console.log(response.data);
+        let coronaObjects=response.data;
+        let date = response.data.timelineitems[0];
+        console.log(response.data.timelineitems[0]);
+        res.render('index.ejs',{corona: coronaObjects, dates: date}); 
+
+          
+          for (const [key, value] of Object.entries(date)) {
+           
+            
+            
+            console.log(`${key}: ${value}`);
+        }
+
+
 
         
     }).
@@ -32,8 +38,8 @@ app.post('/',(req, res)=>{
         
     });      
         
+ });
 
-});
 
 app.listen(3000, ()=>{
     console.log('Server is running on Port 3000');

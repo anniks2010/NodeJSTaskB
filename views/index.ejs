@@ -8,18 +8,18 @@
     <title>Estonia COVID Stats</title>
 </head>
 <body>
-
+  <% if(corona){%>
     <div class="container" >
         <nav class="navbar navbar-expand-lg navbar-light bg-light" >
-            <a class="navbar-brand" href="#">Estonia</a>
+            <a class="navbar-brand" href="#"><%= corona.countrytimelinedata[0].info.title%></a>
         </nav>
         <div class="row" style="margin: 0;">
             <table class="table">
                 <thead>
                   <tr>
                     <th scope="col">#</th>
-                    <th scope="col">2/27/20</th>
-                    <th scope="col">9/29/20</th>
+                    <th scope="col">27.02.2020</th>
+                    <th scope="col">06.10.2020</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -45,7 +45,7 @@
 
     
     
-   
+   <%}%>
      
 </body>
 </html>
