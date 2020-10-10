@@ -18,25 +18,25 @@
                 <thead>
                   <tr>
                     <th scope="col">#</th>
-                    <th scope="col">27.02.2020</th>
-                    <th scope="col">06.10.2020</th>
+                    <th scope="col"><%= Object.keys(dates)[0]%></th>
+                    <th scope="col"><%= Object.keys(dates)[Object.keys(dates).length-2]%></th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
                     <th scope="row">New daily cases</th>
-                    <td>1</td>
-                    <td>48</td>
+                    <td><%= dates[Object.keys(dates)[0]].new_daily_cases%></td>
+                    <td><%= dates[Object.keys(dates)[Object.keys(dates).length-2]].new_daily_cases%></td>
                   </tr>
                   <tr>
                     <th scope="row">Total cases</th>
-                    <td>1</td>
-                    <td>3315</td>
+                    <td><%= dates[Object.keys(dates)[0]].total_cases%></td>
+                    <td><%= dates[Object.keys(dates)[Object.keys(dates).length-2]].total_cases%></td>
                   </tr>
                   <tr>
                     <th scope="row">Total recoveries</th>
-                    <td>0</td>
-                    <td>1880</td>
+                    <td><%= dates[Object.keys(dates)[0]].total_recoveries%></td>
+                    <td><%= dates[Object.keys(dates)[Object.keys(dates).length-2]].total_recoveries%></td>
                   </tr>
                 </tbody>
               </table>

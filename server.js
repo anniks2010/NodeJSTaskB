@@ -15,22 +15,37 @@ app.get("/", function(req, res){
     axios.get(url).
     
     then(function(response){
-        ////console.log(response.data);
         let coronaObjects=response.data;
         let date = response.data.timelineitems[0];
-        console.log(response.data.timelineitems[0]);
+        
+        ///console.log(response.data.timelineitems[0]);
         res.render('index.ejs',{corona: coronaObjects, dates: date}); 
 
-          
-          for (const [key, value] of Object.entries(date)) {
+    
+        
+        /*for (var keys=Object.keys(date), i=0, end=keys.length; i<end;i++){
+            var key=keys[i], value=date[key];
+            let lastKey = keys[end-2];
+            let firstKey = keys[0];
+            
+           if (key==firstKey){
+                console.log(`First date is: ${firstKey}`);
+                console.log(`New daily cases: ${value.new_daily_cases}`);
+                console.log(`Total cases: ${value.total_cases}`);
+                console.log(`Total recoveries: ${value.total_recoveries}`);
+           }else if(key=lastKey){
+                console.log(`Last date is: ${lastKey}`);
+                console.log(`New daily cases: ${value.new_daily_cases}`);
+                console.log(`Total cases: ${value.total_cases}`);
+                console.log(`Total recoveries: ${value.total_recoveries}`);
+                break;
+           }
+
            
-            
-            
-            console.log(`${key}: ${value}`);
-        }
-
-
-
+        
+        };*/
+        
+    
         
     }).
     catch(function(error){
